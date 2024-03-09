@@ -1,0 +1,49 @@
+package com.luv2code.springbootlibrary.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Entity
+@Table(name = "History")
+@Data
+public class History {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "user_email")
+    private String userEmail;
+    @Column(name = "checkout_date")
+    private String checkoutDate;
+    @Column(name = "returned_date")
+    private String returnedDate;
+    @Column(name = "title")
+    private String title;
+    @Column(name = "author")
+    @Size(min = 5, max = 65555)
+    private String author;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "img")
+    private String img;
+    @Column(name = "profile_image_id")
+    private String profileImageId;
+
+    public History() {
+    }
+
+    public History(
+            String userEmail, String checkoutDate, String returnedDate, String title,
+                   String author, String description, String img, String profileImageId
+    ) {
+        this.userEmail = userEmail;
+        this.checkoutDate = checkoutDate;
+        this.returnedDate = returnedDate;
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.img = img;
+        this.profileImageId = profileImageId;
+    }
+}
